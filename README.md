@@ -1,6 +1,9 @@
 # advent-of-code-kotlin-2023
 
-Welcome to the Advent of Code[^aoc] Kotlin project created by [edubrunaldi][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
+Welcome to my repository of solutions for the Advent of Code 2023[^aoc] Kotlin project created by [edubrunaldi][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
+
+
+In this project, I'm tackling each challenge using Kotlin. My aim is to explore and showcase the capabilities of Kotlin, a language I'm passionate about.
 
 ## Goals
 - **Kotlin Proficiency**: To solve all challenges using Kotlin, demonstrating my proficiency and understanding of the language.
