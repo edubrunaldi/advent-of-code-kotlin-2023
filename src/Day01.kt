@@ -25,8 +25,9 @@ private fun getLineCalibrationWithLetter(line: String): Int {
         digitAndIndex = getNextDigit(line, digitAndIndex.lastIndex)
             .also { if(it.digit != -1) list.add(it.digit) }
     }
-    println("$line : $list - sum: ${list[0]*10 + list[list.size-1]}")
-    return list[0]*10 + list[list.size-1]
+    val result = if(list.isEmpty()) 0 else list[0]*10 + list[list.size-1]
+    println("$line : $list - sum: $result")
+    return result
 }
 
 data class DigitAndIndex(val digit: Int, val lastIndex: Int)
@@ -45,10 +46,7 @@ fun getNextDigit(line: String, index: Int): DigitAndIndex {
         }
         aux++
     }
-    if (digit == -1 && aux >= line.length) {
-        return DigitAndIndex(digit, index + 1)
-    }
-    return DigitAndIndex(digit, aux)
+    return DigitAndIndex(digit, index + 1)
 
 }
 
@@ -62,7 +60,7 @@ fun main() {
 
 //     test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
-    check(part1(testInput) == 281)
+    check(part1(testInput) == 1)
 
     val input = readInput("Day01")
     part1(input).println()
