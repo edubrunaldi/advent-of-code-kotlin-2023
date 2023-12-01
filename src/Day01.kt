@@ -9,12 +9,20 @@ val hash = HashMap<String, Int>()
     .apply { this["eight"] = 8 }
     .apply { this["nine"] = 9 }
 
+data class DigitAndIndex(val digit: Int, val lastIndex: Int)
+
+/**
+ * Calculates the sum of two integers at the specified indices in the given list, if empty return 0.
+ */
+private fun List<Int>.sumOfFirstAndLast(): Int =
+    takeIf { it.isNotEmpty() }
+        ?.let { it[0] + it[it.size - 1] }
+        ?: 0
+
 private fun getLineCalibration(line: String): Int =
     line
         .mapNotNull { it.digitToIntOrNull() }
-        .takeIf { it.isNotEmpty() }
-        ?.let { it[0]*10 + it[it.size-1] }
-        ?: 0
+        .sumOfFirstAndLast()
 
 private fun getLineCalibrationWithLetter(line: String): Int {
     val list = mutableListOf<Int>()
@@ -25,12 +33,8 @@ private fun getLineCalibrationWithLetter(line: String): Int {
         digitAndIndex = getNextDigit(line, digitAndIndex.lastIndex)
             .also { if(it.digit != -1) list.add(it.digit) }
     }
-    val result = if(list.isEmpty()) 0 else list[0]*10 + list[list.size-1]
-    println("$line : $list - sum: $result")
-    return result
+    return list.sumOfFirstAndLast()
 }
-
-data class DigitAndIndex(val digit: Int, val lastIndex: Int)
 fun getNextDigit(line: String, index: Int): DigitAndIndex {
     var aux = index + 1
     var digit = -1
