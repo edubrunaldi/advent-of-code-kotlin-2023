@@ -35,7 +35,7 @@ private fun getLineCalibrationWithLetter(line: String): Int {
     }
     return list.sumOfFirstAndLast()
 }
-fun getNextDigit(line: String, index: Int): DigitAndIndex {
+private fun getNextDigit(line: String, index: Int): DigitAndIndex {
     var aux = index + 1
     var digit = -1
 
@@ -58,9 +58,8 @@ fun main() {
     fun part1(input: List<String>): Int =
         input.sumOf { getLineCalibration(it) }
 
-    fun part2(input: List<String>): Int {
-        return input.sumOf { getLineCalibrationWithLetter(it) }
-    }
+    fun part2(input: List<String>): Int =
+        input.sumOf { getLineCalibrationWithLetter(it) }
 
 //     test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
