@@ -1,4 +1,4 @@
-data class CubeSet(val blue: Int, val green: Int, val red: Int) {
+private data class CubeSet(val blue: Int, val green: Int, val red: Int) {
     constructor(input: String) : this(
         blue = extractColorValues(input, "blue"),
         green = extractColorValues(input, "green"),
@@ -14,7 +14,7 @@ data class CubeSet(val blue: Int, val green: Int, val red: Int) {
     }
 }
 
-data class Game(val id: Int, val cubeSets: List<CubeSet>) {
+private data class Game(val id: Int, val cubeSets: List<CubeSet>) {
     companion object {
         private const val MAX_RED = 12
         private const val MAX_BLUE = 14
